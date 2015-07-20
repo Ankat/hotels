@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootApplication
 public class SpringBootHelloWorldApplication {
@@ -20,14 +19,13 @@ public class SpringBootHelloWorldApplication {
 
 	/**
 	 * 
-	 * Loads the relational database on startup
+	 * Loads the database on startup
 	 * 
 	 * @param hr
 	 * @return
 	 */
 	@Bean
-	@Transactional
-	CommandLineRunner prepareDatabase(HotelRepository hr) {
+	CommandLineRunner initializeApp(HotelRepository hr) {
 		return args -> {
 			logger.debug("loading database..");
 			hr.save(new Hotel(1, "Marriott"));
