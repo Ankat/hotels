@@ -1,0 +1,9 @@
+---
+applications:
+- name: hotels
+  memory: 512M
+  instances: 1
+  random-route: true
+  path: ./target/hotels-0.0.1-SNAPSHOT.jar
+  services:
+  - hotels-db
