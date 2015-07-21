@@ -25,7 +25,7 @@ public class SpringBootHelloWorldApplication {
 	 * @return
 	 */
 	@Bean
-	CommandLineRunner initializeApp(HotelRepository hr) {
+	CommandLineRunner loadDatabase(HotelRepository hr) {
 		return args -> {
 			logger.debug("loading database..");
 			hr.save(new Hotel(1, "Marriott"));
